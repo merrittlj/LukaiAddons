@@ -1,0 +1,29 @@
+Mods: {
+	LukaiAddons: {
+		Buffs: {
+			BoulderBusterBuff: {
+				DisplayName: Boulder Buster Supreme Activated
+				Description: Drill 2.0
+			}
+		}
+
+		Items: {
+			LA: {
+				DisplayName: LukaiAddons
+				Tooltip: A secret weapon?!?! This is useless.
+			}
+
+			Mounts: {
+				BoulderBusterBell: {
+					DisplayName: Boulder Buster Supreme Bell
+					Tooltip:
+						'''
+						[c/F9FE3F:Rings up the Boulder Buster Supreme.]
+
+						[c/FF0000:DO NOT TELL MAX]
+						'''
+				}
+			}
+		}
+	}
+}
