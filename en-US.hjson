@@ -24,6 +24,20 @@ Mods: {
 						'''
 				}
 			}
+
+			CrappyDice: {
+				DisplayName: Crappy Dice
+				Tooltip:
+					'''
+					Ability: Try Your Luck (Left Click)
+
+					Costs 66 silver to roll between 1-6.
+					If you roll a 6, earn 10 gold.
+					'''
+			}
 		}
+
+		Keybinds.BoulderBusterDown.DisplayName: Boulder Buster Down
+		Projectiles.Dice.DisplayName: Dice
 	}
 }

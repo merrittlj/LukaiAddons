@@ -16,7 +16,7 @@ namespace LukaiAddons.Content.Items.Mounts
 			Item.useStyle = ItemUseStyleID.Guitar;
 			Item.holdStyle = ItemHoldStyleID.HoldHeavy;
 			Item.rare = ItemRarityID.Yellow;
-			Item.value = Item.buyPrice(copper: 69);
+			Item.value = Item.buyPrice(copper: 89);
 			Item.UseSound = SoundID.Item35; /* Bell sound */
 			Item.noMelee = true;
 			Item.mountType = ModContent.MountType<BoulderBuster>();

@@ -12,6 +12,16 @@ using Terraria.GameContent.Generation;
 
 namespace LukaiAddons.Content.Items.Mounts
 {
+	public class BoulderBusterKeybind : ModSystem
+	{
+		public static ModKeybind DownKeybind { get; private set; }
+		public override void Load()
+		{
+			DownKeybind = KeybindLoader.RegisterKeybind(Mod, "BoulderBusterDown", "S");
+		}
+
+		public override void Unload() { DownKeybind = null; }
+	}
 	public class BoulderBuster : ModMount
 	{
 		public override void SetStaticDefaults()
@@ -133,6 +143,10 @@ namespace LukaiAddons.Content.Items.Mounts
 							source.Y -= 2f;
 							Vector2 tileVec = new Vector2(Math.Abs(x - source.X / 16f), Math.Abs(y - source.Y / 16f));
 							float tileDist = tileVec.Length();
+
+							if (BoulderBusterKeybind.DownKeybind.Current)
+								tileDist = 1;
+
 							Tile tile;
 							if (!WorldGen.InWorld(x, y)) /* Make sure we are in the world. */
 								tile = new Tile();
