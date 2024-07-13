@@ -13,7 +13,9 @@ public class LukaiGlobalNPC : GlobalNPC
 
 		if (type == NPCID.GoblinTinkerer)
 		{
-			shop.Add(ModContent.ItemType<CrappyDice>());
+			shop.Add(ModContent.ItemType<PoorManDice>());
+			shop.Add(ModContent.ItemType<AdventurerDice>());
+			shop.Add(ModContent.ItemType<HighRollerDice>());
 		}
 	}
 }

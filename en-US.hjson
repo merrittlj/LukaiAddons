@@ -18,21 +18,40 @@ Mods: {
 					DisplayName: Boulder Buster Supreme Bell
 					Tooltip:
 						'''
-						[c/F9FE3F:Rings up the Boulder Buster Supreme.]
+						[c/FFFF0A:Rings up the Boulder Buster Supreme.]
 
 						[c/FF0000:DO NOT TELL MAX]
 						'''
 				}
 			}
 
-			CrappyDice: {
-				DisplayName: Crappy Dice
+			PoorManDice: {
+				DisplayName: Poor Man's Dice
 				Tooltip:
 					'''
-					Ability: Try Your Luck (Left Click)
+					[c/FFAA00:Ability: Get Rich Quick (Left Click)]
+					Costs [c/B5C0C1:77 silver] and [c/F68A60:77 copper] to roll between 1-6.
+					If you roll a 6, earn [c/E0C95C:15 gold].
+					'''
+			}
 
-					Costs 66 silver to roll between 1-6.
-					If you roll a 6, earn 10 gold.
+			AdventurerDice: {
+				DisplayName: Adventurer's Dice
+				Tooltip:
+					'''
+					[c/FFAA00:Ability: Try Your Luck (Left Click)]
+					Costs [c/E0C95C:7 gold] and [c/B5C0C1:77 silver] to roll between 1-6.
+					If you roll a 6, earn [c/BFBFAC:1 platinum].
+					'''
+			}
+
+			HighRollerDice: {
+				DisplayName: High Roller's Dice
+				Tooltip:
+					'''
+					[c/FFAA00:Ability: Big Gamble (Left Click)]
+					Costs [c/BFBFAC:7 platinum] and [c/E0C95C:77 gold] to roll between 1-6.
+					If you roll a 6, earn [c/BFBFAC:100 platinum].
 					'''
 			}
 		}
