@@ -42,10 +42,15 @@ namespace LukaiAddons.Content.Items
 			recallReady = false;
 			useTim = 0f;
 			Filters.Scene["BloodRealmMoon"].Deactivate();
+			Filters.Scene["BloodRealm"].Deactivate();
 			player.ClearBuff(ModContent.BuffType<TimeBuff>());
 			foreach (Dust d in Main.dust)
 			{
 				if (d.type == ModContent.DustType<TimeDust>()) d.active = false;
+			}
+			foreach(NPC n in Main.npc)
+			{
+				n.hide = false;
 			}
 		}
 
@@ -56,6 +61,10 @@ namespace LukaiAddons.Content.Items
 				++useTim;
 				Dust.NewDust(player.Center, 1, 1, ModContent.DustType<TimeDust>());
 				Dust.NewDust(new Vector2(player.Center.X, player.Center.Y + 1), 1, 1, ModContent.DustType<TimeDust>());
+				foreach(NPC n in Main.npc)
+				{
+					n.hide = true;
+				}
 			}
 			if (useTim >= 1.5 * 60) recallReady = true;
 			if (useTim >= 7 * 60) recall(player);
@@ -89,7 +98,7 @@ namespace LukaiAddons.Content.Items
 				player.AddBuff(ModContent.BuffType<TimeCooldownBuff>(), (int)(1.5 * 60));
 
 				Filters.Scene.Activate("BloodRealmMoon");
-
+				Filters.Scene.Activate("BloodRealm", player.Center).GetShader().UseColor(3, 5, 15).UseTargetPosition(player.Center);;
 				return true;
 			}
 			return true;

@@ -8,12 +8,12 @@ Mods: {
 
 			TimeBuff: {
 				DisplayName: The Blood Realm
-				Description: Test
+				Description: Enemies are hidden and your vision is slightly reduced whilst in The Blood Realm
 			}
 
 			TimeCooldownBuff: {
 				DisplayName: Blood Watch Cooldown
-				Description: Test
+				Description: You have to wait 1.5 seconds before recalling
 			}
 		}
 
@@ -67,7 +67,13 @@ Mods: {
 
 			BloodWatch: {
 				DisplayName: Blood Watch
-				Tooltip: Test
+				Tooltip:
+					'''
+					Ability: Enter The Blood Realm (Left Click)
+					Save your current position and enter The Blood Realm.
+					Enemies are hidden and your vision is slightly reduced.
+					You are recalled to your previous position if you use the ability again or after 7 seconds.
+					'''
 			}
 		}
 

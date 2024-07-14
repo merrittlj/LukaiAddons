@@ -19,6 +19,7 @@ float2 uImageOffset;
 float uSaturation;
 float4 uSourceRect;
 float2 uZoom;
+float PI = 3.14;
 
 float4 BloodRealmFilter(float2 coords : TEXCOORD0) : COLOR0
 {
