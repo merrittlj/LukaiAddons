@@ -5,6 +5,16 @@ Mods: {
 				DisplayName: Boulder Buster Supreme Activated
 				Description: Drill 2.0
 			}
+
+			TimeBuff: {
+				DisplayName: The Blood Realm
+				Description: Test
+			}
+
+			TimeCooldownBuff: {
+				DisplayName: Blood Watch Cooldown
+				Description: Test
+			}
 		}
 
 		Items: {
@@ -53,6 +63,11 @@ Mods: {
 					Costs [c/BFBFAC:7 platinum] and [c/E0C95C:77 gold] to roll between 1-6.
 					If you roll a 6, earn [c/BFBFAC:100 platinum].
 					'''
+			}
+
+			BloodWatch: {
+				DisplayName: Blood Watch
+				Tooltip: Test
 			}
 		}
 
