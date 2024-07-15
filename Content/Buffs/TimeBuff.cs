@@ -17,19 +17,29 @@ namespace LukaiAddons.Content.Buffs
 			tickTim = 0f;
 		}
 
+		bool firstSound = false;
 		public override void Update(Player player, ref int buffIndex)
 		{
 			++tickTim;
 			
-			if (tickTim >= 60)
+			if (tickTim >= 60 && !firstSound)
 			{
 				if (count >= 7) count = 0;
 				++count;
 				SoundEngine.PlaySound(SoundID.NPCHit3 with {
 					Volume = 1.0f,
-					Pitch = 0.3f + (count / 10)
+					MaxInstances = 1
 				});
+				firstSound = true;
+			}
+			if (tickTim >= 70)
+			{
 				tickTim = 0f;
+				SoundEngine.PlaySound(SoundID.NPCHit3 with {
+					Volume = 1.0f,
+					MaxInstances = 1
+				});
+				firstSound = false;
 			}
 		}
 	}

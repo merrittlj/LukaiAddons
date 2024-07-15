@@ -69,10 +69,13 @@ Mods: {
 				DisplayName: Blood Watch
 				Tooltip:
 					'''
-					Ability: Enter The Blood Realm (Left Click)
-					Save your current position and enter The Blood Realm.
-					Enemies are hidden and your vision is slightly reduced.
-					You are recalled to your previous position if you use the ability again or after 7 seconds.
+					[c/FFAA00:Ability: Enter The Blood Realm (Left Click)]
+					Save your current position and enter [c/FF0000:The Blood Realm].
+					You are recalled to your previous position if you use the ability again
+					or automatically after 7 seconds.
+					In [c/FF0000:The Blood Realm] enemies are hidden, 
+					you deal and take [c/55FF55:50% more damage], 
+					but all your outgoing damage applies when recalling.
 					'''
 			}
 		}

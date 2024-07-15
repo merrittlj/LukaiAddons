@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.Audio;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -8,6 +9,7 @@ using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using LukaiAddons.Content.Dusts;
 using LukaiAddons.Content.Buffs;
+using LukaiAddons.Common.Players;
 
 namespace LukaiAddons.Content.Items
 { 
@@ -32,6 +34,7 @@ namespace LukaiAddons.Content.Items
 		bool recallReady = false;
 		bool used = false;
 		float useTim = 0f;
+		float prevVolume = 0f;
 		Vector2 prevPos;
 
 		private void recall(Player player)
@@ -44,13 +47,21 @@ namespace LukaiAddons.Content.Items
 			Filters.Scene["BloodRealmMoon"].Deactivate();
 			Filters.Scene["BloodRealm"].Deactivate();
 			player.ClearBuff(ModContent.BuffType<TimeBuff>());
+			player.GetModPlayer<BloodRealmPlayer>().inBloodRealm = false;
+			player.GetModPlayer<BloodRealmPlayer>().ApplyBloodDamage();
+			Main.soundVolume = prevVolume;
 			foreach (Dust d in Main.dust)
 			{
 				if (d.type == ModContent.DustType<TimeDust>()) d.active = false;
 			}
 			foreach(NPC n in Main.npc)
 			{
-				n.hide = false;
+				n.alpha = 0;
+				n.HideStrikeDamage = false;
+			}
+			foreach(Projectile p in Main.projectile)
+			{
+				p.alpha = 0;
 			}
 		}
 
@@ -63,7 +74,12 @@ namespace LukaiAddons.Content.Items
 				Dust.NewDust(new Vector2(player.Center.X, player.Center.Y + 1), 1, 1, ModContent.DustType<TimeDust>());
 				foreach(NPC n in Main.npc)
 				{
-					n.hide = true;
+					n.alpha = 255;
+					n.HideStrikeDamage = true;
+				}
+				foreach(Projectile p in Main.projectile)
+				{
+					if (p.owner != Main.myPlayer) p.alpha = 255;
 				}
 			}
 			if (useTim >= 1.5 * 60) recallReady = true;
@@ -96,6 +112,9 @@ namespace LukaiAddons.Content.Items
 
 				player.AddBuff(ModContent.BuffType<TimeBuff>(), 7 * 60);
 				player.AddBuff(ModContent.BuffType<TimeCooldownBuff>(), (int)(1.5 * 60));
+				player.GetModPlayer<BloodRealmPlayer>().inBloodRealm = true;
+				prevVolume = Main.soundVolume;
+				//Main.soundVolume = 0f;
 
 				Filters.Scene.Activate("BloodRealmMoon");
 				Filters.Scene.Activate("BloodRealm", player.Center).GetShader().UseColor(3, 5, 15).UseTargetPosition(player.Center);;
