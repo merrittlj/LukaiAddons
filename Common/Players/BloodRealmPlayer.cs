@@ -38,7 +38,6 @@ namespace LukaiAddons.Common.Players
 		{
 			foreach(NPCDamageInfo dinfo in npcDamageList)
 			{
-				Main.NewText($"Index: {dinfo.npcIndex}, damage: {dinfo.damageTaken}");
 				Main.npc[dinfo.npcIndex].SimpleStrikeNPC(dinfo.damageTaken, 1);
 			}
 			npcDamageList.Clear();
@@ -68,6 +67,7 @@ namespace LukaiAddons.Common.Players
 
 		public override void ModifyHitNPCWithItem(Item item, NPC target, ref NPC.HitModifiers modifiers)
 		{
+			/* TODO: does not capture shield bash damage */
 			BloodRealmHit(item.damage, Player.GetWeaponCrit(item), target, ref modifiers);
 		}
 
