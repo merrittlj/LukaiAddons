@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace LukaiAddons.Common.Players
 {
-	public class BloodRealmPlayer : ModPlayer
+	public partial class LukaiAddonsPlayer : ModPlayer
 	{
 		public bool inBloodRealm = false;
 		private bool prevInBloodRealm = false;

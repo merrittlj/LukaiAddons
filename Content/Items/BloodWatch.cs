@@ -47,8 +47,8 @@ namespace LukaiAddons.Content.Items
 			Filters.Scene["BloodRealmMoon"].Deactivate();
 			Filters.Scene["BloodRealm"].Deactivate();
 			player.ClearBuff(ModContent.BuffType<TimeBuff>());
-			player.GetModPlayer<BloodRealmPlayer>().inBloodRealm = false;
-			player.GetModPlayer<BloodRealmPlayer>().ApplyBloodDamage();
+			player.GetModPlayer<LukaiAddonsPlayer>().inBloodRealm = false;
+			player.GetModPlayer<LukaiAddonsPlayer>().ApplyBloodDamage();
 			Main.soundVolume = prevVolume;
 			foreach (Dust d in Main.dust)
 			{
@@ -112,7 +112,7 @@ namespace LukaiAddons.Content.Items
 
 				player.AddBuff(ModContent.BuffType<TimeBuff>(), 7 * 60);
 				player.AddBuff(ModContent.BuffType<TimeCooldownBuff>(), (int)(1.5 * 60));
-				player.GetModPlayer<BloodRealmPlayer>().inBloodRealm = true;
+				player.GetModPlayer<LukaiAddonsPlayer>().inBloodRealm = true;
 				prevVolume = Main.soundVolume;
 				//Main.soundVolume = 0f;
 
